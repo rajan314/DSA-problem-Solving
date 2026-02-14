@@ -1,0 +1,24 @@
+// generate all valid parenthesis
+#include<iostream>
+using namespace std;
+void generate_parenthesis(string abtak, int open_remaining , int close_remaining){
+    if(open_remaining == 0 && close_remaining ==0){
+        cout<<abtak<<endl;
+        return;
+    }
+    if(open_remaining>0)
+       generate_parenthesis(abtak + "{",open_remaining - 1,close_remaining);
+    if(close_remaining>0 && open_remaining<close_remaining)
+       generate_parenthesis(abtak+"}",open_remaining,close_remaining-1);
+}
+
+int main()
+
+{
+    int n;
+   cout<<" Enter a Number:"<<" ";
+    cin>>n;
+    generate_parenthesis("",n,n);
+    return 0;
+    
+}
