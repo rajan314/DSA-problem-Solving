@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+
+void generate(int countA, int countB, string current) {
+    // Base case
+    if (countA == 0 && countB == 0) {
+        cout << current << endl;
+        return;
+    }
+
+    // If 'a' is still remaining
+    if (countA > 0) {
+        generate(countA - 1, countB, current + 'a');
+    }
+
+    // If 'b' is still remaining
+    if (countB > 0) {
+        generate(countA, countB - 1, current + 'b');
+    }
+}
+
+int main() {
+    int n;
+    cout << "Enter n: ";
+    cin >> n;
+
+    generate(n, n, "");
+    return 0;
+}
